@@ -1,0 +1,37 @@
+# 应用名称
+spring:
+  application:
+    name: JoyPay
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/joypay-db?serverTimezone=Asia/Shanghai&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+      # 常用请求与响应自动转下划线,常用请求与响应空值字段不传输
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+  mvc:
+    converters:
+      preferred-json-mapper: jackson
+sa-token:
+    # token名称 (同时也是cookie名称)
+  token-name: token
+    # token有效期，单位秒，-1代表永不过期
+  timeout: 2592000
+    # 是否允许同一账号并发登录 (为false时新登录挤掉旧登录)
+  is-concurrent: false
+    # 在多人登录同一账号时，是否共用一个token (为false时每次登录新建一个token)
+  is-share: false
+    # token风格
+  token-style: uuid
+    # 是否输出操作日志
+  is-log: true
+alipay:
+  appId: 2021000121685180
+  appPrivateKey: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDBAl81g4WV0MWoKBmwMGiS+0tJRJZbuEqowsDtZgGpUWIbHafxe5J7kt44lJUGYV/qGlfL2XJZDMZu7shv7bXzCgulLwHnlijwQxUTv4sJtwNiigCHTpPn0MUbYVC+LUtNN6iaoaXOKV1xB6XKMEpuMiQKbW6WcDrgVvhGyQK9YQRoK6eCTHOCsy/UHUBg4SnhOBCUVlYnhzIMDwQ2uhowz0lAu7Dgfr7JHQFWX57f1meSWhTVAbwx6ZsbHggRwRp5LXltZ6FHN8ySZcyGgXirFZvz9N9/UnB3MlnRNkomz7G8YfADpqW1dfL+68JmWY4eL2QxMkfqthuFjqy/VO2lAgMBAAECggEABqQdQIsg+pGva2TN1Xkk8AHDimbYwZkqwHnLB6Ad6ISLWqF/mNiGpsfb65h5NDn/gd+cK8B0pcnBvilrLibAvvcWhX2DlENfbzzvqblKgHASpr5W3FEA19YgIhwMGi8WyzZiD8gGG3zi4TPBKZ7VwMrq4Iz5ZCXCcNutOUpLVNbFZ3h0CgeFpTch44OK3isMN+Qm/R006qtB+Ffi4RG/NbXJ4zmLEhGy3kdpAq2OkX/1MTQGN7D4+vAvB6iNbrdZuPcA+BfffMWM5CPigpq1H3sw5QEWZAEYXzcyXqGVbElGkkoNjnFfpaQbxBXccxrmvWGmlkbnDxXQB+WQjgu8lQKBgQDwBnqAwGRKgQUdaAkuunx7hkRrY9QvyjJVQym/xTfOy80RDBOBMAq+RVWreeHCrXGRpcUvY8slEliN15QIhmW4PV3AwrxVVbZ6tBTdZ6Qm+kZWmltWi+BD62j/SrQ0Bi0+K/UQsZf9yJMmZwyzrrMG1mzAp+ODKfbUmLX7FBbRZwKBgQDN2tcC1B7qmOvRaYgphe9AeDMBkan+au9MT+TJujUt03gazRKjwZ8mGB/3SNgVv3JEQK3wCEtKDLPoYs5Ui2Gw/AqI+ZZXkDWi9fRzUn5xV8Uf3UqXBIh+7iYJme0ihDsLvNs8lQuUn9Ry4tcp2pOWWNu7RXo18HFFmIr9xnSlEwKBgFpEpXecY1tdsFXB1Yo8Wip+cWbN0XPzoABO1PmpKvbb0JBzsTYpojCylKh7mvsDDa4P4NuUtUaI4sLda2/VU5X5hjPDSN7y8ECvTxWBL8v03dUeEfG3gy0n8IHqT2EtXYB/OZgAoj+wWh7cLHu63NtacuX1fevLMWf80pvNj1NLAoGBAI3+hA1pcCH2dcOvfcLWph/cSaKtbYsXDBWhjnkvvnrrwY8LIe5fIn5Oac5TKuplclZuHwzRS826UWbcsOJUeoBwenvdXbzstnLAIWxi3OEl382JAWiGMfkMIKTCznXerDP+g2OYk7JjRVIx8qTmJqOwi3D0DcajIh8Vh9phSBiNAoGBAIysfBPYPN72OoQEvjsPX2JO0fcOBSyopJKMT7g6XUIBVfdYEvYDTRq7sjuLprn4+GZjm4qIvm8tTd2T8+XkfmGqGTiyFDQ6jzsBCNpBfnFvzn/L+qaQPcpkdIWTZ97Qd2yakrUg05o6LKUDmyn8WPQUJ0SAVdDTgF9dQSA2TOsv
+  alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhcurVBBvaE/ZsYZIutkfzPwckdVQV46yMwN+4Dmv/A0TAQOmw2Iese2sCaGR2iCRECD+aO3eiMyIYl/aYQUNFwOe06mDNT9Sz7T5w1M5DaiS8JsXTjUumd/0YhEaSMzPTuAI0AypKn+JNyJUJ7ShoEE80sDM3Kcs9q1FzpINBWOTrlmzk2F4ZKRS8XF6G6C80Qm1Zgi07wJMLDk6dbVAlvnV5eY1jJhxPZ+Ej017VtA9bfJcyo5x3H/pp8KLa0eVG+pUGmol9W4g0tH5ZRTc7KL1VQZUFVCTG5rt414JX24f0KwXxVWBhzRFL9xIVRNBmGhLMBGojkh1+K0+it1OcwIDAQAB
+  notifyUrl: www.baidu.com
+

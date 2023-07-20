@@ -1,0 +1,10 @@
+# 应用名称
+spring:
+  profiles:
+    active: dev
+
+
+
+
+
+
